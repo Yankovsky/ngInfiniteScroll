@@ -43,7 +43,7 @@ describe 'Infinite Scroll', ->
         scope[k] = v
       scope.scroll = sinon.spy()
       $compile(el)(scope)
-      $timeout.flush() # 'immediate' call is with $timeout ..., 0
+	  scope.$apply() # call handler in $watch
 
       container.scroll()
 
@@ -68,7 +68,7 @@ describe 'Infinite Scroll', ->
         scope[k] = v
       scope.scroll = sinon.spy()
       $compile(el)(scope)
-      $timeout.flush() # 'immediate' call is with $timeout ..., 0
+	  scope.$apply() # call handler in $watch
 
       scope.scroll.should.have.been.called
 
@@ -91,7 +91,7 @@ describe 'Infinite Scroll', ->
         scope[k] = v
       scope.scroll = sinon.spy()
       $compile(el)(scope)
-      $timeout.flush() # 'immediate' call is with $timeout ..., 0
+	  scope.$apply() # call handler in $watch
       scope.scroll.should.not.have.been.called
       container.scroll()
       scope.scroll.should.have.been.called

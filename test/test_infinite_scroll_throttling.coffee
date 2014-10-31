@@ -94,7 +94,7 @@ describe 'Infinite Scroll Throttled to 200ms', ->
     scope = $rootScope.$new(true)
     scope.scroll = sinon.spy()
     $compile(el)(scope)
-    $timeout.flush() # 'immediate' call is with $timeout ..., 0
+	scope.$apply() # call handler in $watch
     scope.scroll.should.have.been.calledOnce
 
     el.remove()
@@ -112,7 +112,7 @@ describe 'Infinite Scroll Throttled to 200ms', ->
     scope = $rootScope.$new(true)
     scope.scroll = sinon.spy()
     $compile(el)(scope)
-    $timeout.flush() # 'immediate' call is with $timeout ..., 0
+	scope.$apply() # call handler in $watch
     scope.scroll.should.not.have.been.called
     fakeWindow.scroll()
     scope.scroll.should.have.been.calledOnce
