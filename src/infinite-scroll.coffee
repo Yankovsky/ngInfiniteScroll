@@ -167,8 +167,7 @@ mod.directive 'infiniteScroll', ['$rootScope', '$window', '$timeout', 'THROTTLE_
     if attrs.infiniteScrollImmediateCheck?
       immediateCheck = scope.$eval(attrs.infiniteScrollImmediateCheck)
 
-    $timeout (->
+    scope.$watch ->
       if immediateCheck
         handler()
-    ), 0
 ]

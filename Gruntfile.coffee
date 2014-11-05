@@ -59,5 +59,5 @@ module.exports = (grunt) ->
           runnerPort: 9101
           keepalive: true
 
-  grunt.registerTask 'default', ['coffeelint', 'clean', 'coffee', 'concat', 'uglify']
+  grunt.registerTask 'default', ['clean', 'coffee', 'concat', 'uglify']
   grunt.registerTask 'test', ['testacular']

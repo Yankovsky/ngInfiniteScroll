@@ -1,4 +1,4 @@
-/* ng-infinite-scroll - v1.1.2 - 2014-05-21 */
+/* ng-infinite-scroll - v1.1.2 - 2014-11-05 */
 var mod;
 
 mod = angular.module('infinite-scroll', []);
@@ -138,11 +138,11 @@ mod.directive('infiniteScroll', [
         if (attrs.infiniteScrollImmediateCheck != null) {
           immediateCheck = scope.$eval(attrs.infiniteScrollImmediateCheck);
         }
-        return $timeout((function() {
+        return scope.$watch(function() {
           if (immediateCheck) {
             return handler();
           }
-        }), 0);
+        });
       }
     };
   }
