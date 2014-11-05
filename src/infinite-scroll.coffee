@@ -171,4 +171,6 @@ mod.directive 'infiniteScroll', ['$rootScope', '$window', '$timeout', 'THROTTLE_
       $timeout ->
         if immediateCheck
           handler()
+      , 0
+      true
 ]
