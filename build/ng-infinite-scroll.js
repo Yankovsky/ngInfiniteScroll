@@ -139,9 +139,11 @@ mod.directive('infiniteScroll', [
           immediateCheck = scope.$eval(attrs.infiniteScrollImmediateCheck);
         }
         return scope.$watch(function() {
-          if (immediateCheck) {
-            return handler();
-          }
+          return $timeout(function() {
+            if (immediateCheck) {
+              return handler();
+            }
+          });
         });
       }
     };
